@@ -18,7 +18,7 @@ The project is a Face Recognition System with integrated Mask Detection, designe
 
 ## Technical Components
 
-1. **OpenCV for Face Recognition**: The face recognition module relies on OpenCV's LBPH face recognizer. The system reads the face data from the `trainer.yml` file, which contains the trained face embeddings. Haar cascades are used for face detection, specifically using the pre-trained `haarcascade_frontalface_default.xml` classifier to locate faces in the video stream.
+1. **OpenCV for Face Recognition**: The face recognition module relies on OpenCV's LBPH face recognizer. The system reads the face data from the `trainer.yml` file, which contains the trained face embeddings. Haar cascades are used for face detection, specifically using the pre-trained `model_files/haarcascade_frontalface_default.xml` classifier to locate faces in the video stream.
 
 2. **Keras for Mask Detection**: The mask detection functionality uses a CNN model implemented in Keras. This model is loaded from `mymodel.h5` and performs predictions on cropped face images captured during the recognition process. Based on the output, the system labels the detected faces with either "MASK" or "NO MASK."
 
