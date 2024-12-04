@@ -1,4 +1,4 @@
-import os 
+import os
 import sys
 from tqdm import tqdm
 import numpy as np
@@ -10,10 +10,10 @@ from create_mask.mask import create_mask
 def mask_generators():
     mask_list = []
 
-    default_path = os.path.join(os.getcwd(),"create_mask/mask.png")
-    white_path = os.path.join(os.getcwd(),"create_mask/white.png")
-    blue_path = os.path.join(os.getcwd(),"create_mask/blue.png")
-    black_path = os.path.join(os.getcwd(),"create_mask/black.png")
+    default_path = os.path.join(os.getcwd(), "create_mask/mask.png")
+    white_path = os.path.join(os.getcwd(), "create_mask/white.png")
+    blue_path = os.path.join(os.getcwd(), "create_mask/blue.png")
+    black_path = os.path.join(os.getcwd(), "create_mask/black.png")
 
     mask_list.append(default_path)
     mask_list.append(white_path)
@@ -22,28 +22,25 @@ def mask_generators():
 
     # print(mask_list)
 
-    dataset_path = 'dataset'
+    dataset_path = "dataset"
 
     # if not os.path.exists('dataset_with_mask'):
     #         os.mkdir('dataset_with_mask')
-            
-            
+
     # for i in os.listdir(dataset_path):
     #     # if not os.path.exists(f'dataset_with_mask/{i}'):
     #         os.mkdir(f'dataset_with_mask/{i}')
-            
-            
-    imagePaths = []
 
+    imagePaths = []
 
     for i in os.listdir(dataset_path):
         # for j in os.listdir(f'{dataset_path}/{i}'):
-            imagePaths.append(f'{dataset_path}/{i}')
-            
-    for i in tqdm(imagePaths,total=len(imagePaths)):
+        imagePaths.append(f"{dataset_path}/{i}")
+
+    for i in tqdm(imagePaths, total=len(imagePaths)):
         mask_path = random.choice(mask_list)
         try:
-            create_mask(i,mask_path)
+            create_mask(i, mask_path)
         except:
             pass
 
@@ -53,21 +50,18 @@ def mask_generators():
     #     # for j in os.listdir(f'dataset_with_mask/{i}'):
     #         imagePaths.append(f'dataset_with_mask/{i}')
 
-
     # if not os.path.exists('dataset_with_mask_face'):
     #     os.mkdir('dataset_with_mask_face')
 
     #     for i in os.listdir("dataset_with_mask"):
     #         os.mkdir(f'dataset_with_mask_face/{i}')
 
-
-    print('MaskAppending Done')
+    print("MaskAppending Done")
     print("extract_faces")
 
     # protoPath = "face_detection_model/deploy.prototxt"
     # modelPath = "face_detection_model/res10_300x300_ssd_iter_140000.caffemodel"
     # detector = cv2.dnn.readNetFromCaffe(protoPath, modelPath)
-
 
     # for (i,imagePath) in tqdm(enumerate(imagePaths),total=len(imagePaths)):
     #     # print(imagePath)
@@ -79,7 +73,6 @@ def mask_generators():
     #     (h,w) = image.shape[:2]
 
     #     imageBlob = cv2.dnn.blobFromImage(cv2.resize(face_image,(300,300)),1.0,(300,300),(104.0,177.0,123.0),swapRB=False,crop=False)
-
 
     #     detector.setInput(imageBlob)
     #     detections = detector.forward()

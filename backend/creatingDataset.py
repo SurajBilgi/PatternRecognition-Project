@@ -1,4 +1,3 @@
-#  Assignment Task - Resolute AI
 # Name : Suraj S Bilgi
 
 # Task: Build a pipeline which would process a video and would detect and recognise faces.

@@ -7,6 +7,9 @@ from backend.Training import recognizer
 from backend.creatingDataset import start_capture
 from backend.FaceRecognition import face_recognizer
 from backend.generate_database import mask_generators
+import warnings
+
+warnings.filterwarnings("ignore", category=UserWarning, module="keras")
 
 # Configure logging
 logging.basicConfig(
@@ -373,7 +376,9 @@ class PageFour(tk.Frame):
 
             cap.release()
             cv2.destroyAllWindows()
-            self.face_recognizer()
+
+            # Call the global face_recognizer function
+            face_recognizer()
             logger.info("Face recognition completed successfully")
         except Exception as e:
             logger.error(f"Error during face recognition: {e}")
